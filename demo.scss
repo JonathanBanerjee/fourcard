@@ -1,0 +1,86 @@
+$teambuildercolor: hsl(0, 78%, 62%);
+$calculatorcolor: hsl(212, 86%, 64%);
+$supervisorcolor: hsl(180, 62%, 55%);
+$karmacolor: hsl(34, 97%, 64%);
+
+%sharedfont {
+  color: #4d4f62;
+  font-family: Poppins, "Courier New", Courier, monospace;
+}
+
+@mixin borders($color1, $color2) {
+  border-top: 4px solid $color1;
+  border-bottom: 4px solid $color2;
+}
+
+@mixin cards {
+  border-radius: 6px;
+  background-color: #ffffff;
+  width: 300px;
+  padding: 24px;
+  padding-top: 6px;
+}
+
+@mixin header {
+  width: 90%;
+  margin: auto;
+}
+
+@mixin icon-container {
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+header h1,
+header h2,
+header p {
+  @extend %sharedfont;
+  text-align: center;
+}
+
+h3 {
+  @extend %sharedfont;
+}
+
+.card {
+  @include cards();
+}
+
+.supervisor {
+  @include borders($supervisorcolor, $supervisorcolor);
+}
+
+.karma {
+  @include borders($karmacolor, $karmacolor);
+}
+
+.calculator {
+  @include borders($calculatorcolor, $calculatorcolor);
+}
+
+.team-builder {
+  @include borders($teambuildercolor, $teambuildercolor);
+}
+
+header {
+  @include header();
+}
+
+.icon-container {
+  @include icon-container();
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    margin: 24px;
+  }
+}
